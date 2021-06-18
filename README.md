@@ -17,12 +17,12 @@
 
 **Готовые настройки:**
 ```bash
-java -jar -server -Xms16G -Xmx16G -XX:+UseLargePages -XX:LargePageSizeInBytes=2M -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=iu -XX:+UseNUMA -XX:+AlwaysPreTouch -XX:-UseBiasedLocking -XX:+DisableExplicitGC -Dfile.encoding=UTF-8 launcher-airplane.jar --nogui
+java -jar -server -Xms6G -Xmx6G -XX:+UseLargePages -XX:LargePageSizeInBytes=2M -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=iu -XX:+UseNUMA -XX:+AlwaysPreTouch -XX:-UseBiasedLocking -XX:+DisableExplicitGC -Dfile.encoding=UTF-8 launcher-airplane.jar --nogui
 ```
 
 **А теперь внимательно разберем, что за что отвечает:**
 
-*-Xms16G* и *-Xmx16G*: устанавливает границы использования памяти вашим сервером Minecraft, рекомендую не использовать более 12 Гб для вашего сервера и всегда оставлять 1 - 2 Гб свободной памяти для системы.
+*-Xms6G* и *-Xmx6G*: устанавливает границы использования памяти вашим сервером Minecraft, рекомендую не использовать более 12 Гб для вашего сервера и всегда оставлять 1 - 2 Гб свободной памяти для системы.
 
 *-XX:+UseLargePages* и *-XX:LargePageSizeInBytes=2M*: **только для опытных пользователей**, позволяет использовать зарегистрированую память большыми страницами, ускоряет скорость запуска и отзывчевость сервера. Заставим Linux регистрировать страницы для нас. Добавляем эту строку в `/etc/sysctl.conf`:
 
