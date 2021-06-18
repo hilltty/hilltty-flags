@@ -19,14 +19,17 @@
 ```bash
 java -jar -server -Xms16G -Xmx16G -XX:+UseLargePages -XX:LargePageSizeInBytes=2M -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=iu -XX:+UseNUMA -XX:+AlwaysPreTouch -XX:-UseBiasedLocking -XX:+DisableExplicitGC -Dfile.encoding=UTF-8 launcher-airplane.jar --nogui
 ```
-#### А теперь внимательно разберем, что за что отвечает:
+
+**А теперь внимательно разберем, что за что отвечает:**
 
 *-Xms16G* и *-Xmx16G*: устанавливает границы использования памяти вашим сервером Minecraft, рекомендую оставить 1 - 2 Гб для системы.
 
 *-XX:+UseLargePages* и *-XX:LargePageSizeInBytes=2M*: **только для опытных пользователей**, позволяет использовать зарегистрированую память большыми страницами, ускоряет скорость запуска и отзывчевость сервера. Заставим Linux регистрировать страницы для нас. Добавляем эту строку в `/etc/sysctl.conf`:
+
 ```bash
 vm.nr_hugepages = 3372
 ```
+
 Как я получил это число? Допустим я хочу зарегистрировать 6 Гб большых страниц, для этого делю 6 Гб на 2.
 
 6 * 1024 / 2 = 3072
@@ -58,7 +61,7 @@ vm.nr_hugepages = 3372
 chunk-gc:
  period-in-ticks: 600
 ```
-#### Рекомендованое значение `chunk-gc.period-in-ticks`:  
+**Рекомендованое значение `chunk-gc.period-in-ticks`:**  
 Я не рекомендую использовать больше 12 Гб памяти на сервере с постоянным онлайном меньше 50.
 
 | Память / Кол-во игроков | < 10 | 10 - 25 | 25 - 50 | > 50
