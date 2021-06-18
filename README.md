@@ -1,1 +1,1 @@
-# [Русская версия](https://github.com/hilltty/hilltty-flags/blob/main/README-RU.md)
+# [Русская версия](https://github.com/hilltty/hilltty-flags/blob/main/russian-lang.md)
