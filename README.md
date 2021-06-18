@@ -9,16 +9,17 @@
 ## Флаги
 **Внимание!** Только JDK 16, работоспособность на старых версиях не гарантирована.
 
-**Поддерживается:**
+#### Поддерживается:
 - [x] Vanilla
 - [x] Bukkit, Spigot, Paper...
 - [x] Fabric
 - [x] Forge
 
+#### Готовые настройки:
 ```bash
 java -jar -server -Xms16G -Xmx16G -XX:+UseLargePages -XX:LargePageSizeInBytes=2M -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=iu -XX:+UseNUMA -XX:+AlwaysPreTouch -XX:-UseBiasedLocking -XX:+DisableExplicitGC -Dfile.encoding=UTF-8 launcher-airplane.jar --nogui
 ```
-**А теперь внимательно разберем, что за что отвечает:**
+#### А теперь внимательно разберем, что за что отвечает:
 
 *-Xms16G* и *-Xmx16G*: устанавливает границы использования памяти вашим сервером Minecraft, рекомендую оставить 1 - 2 Гб для системы.
 
@@ -57,7 +58,7 @@ vm.nr_hugepages = 3372
 chunk-gc:
  period-in-ticks: 600
 ```
-#### Рекомендованое значение `chunk-gc.period-in-ticks`  
+#### Рекомендованое значение `chunk-gc.period-in-ticks`:  
 Я не рекомендую использовать больше 12 Гб памяти на сервере с постоянным онлайном меньше 50.
 
 | Память / Кол-во игроков | < 10 | 10 - 25 | 25 - 50 | > 50
