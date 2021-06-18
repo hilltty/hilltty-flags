@@ -9,13 +9,13 @@
 ## Флаги
 **Внимание!** Только JDK 16, работоспособность на старых версиях не гарантирована.
 
-#### Поддерживается:
+**Поддерживается:**
 - [x] Vanilla
 - [x] Bukkit, Spigot, Paper...
 - [x] Fabric
 - [x] Forge
 
-#### Готовые настройки:
+**Готовые настройки:**
 ```bash
 java -jar -server -Xms16G -Xmx16G -XX:+UseLargePages -XX:LargePageSizeInBytes=2M -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=iu -XX:+UseNUMA -XX:+AlwaysPreTouch -XX:-UseBiasedLocking -XX:+DisableExplicitGC -Dfile.encoding=UTF-8 launcher-airplane.jar --nogui
 ```
