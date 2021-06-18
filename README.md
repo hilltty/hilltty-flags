@@ -53,7 +53,7 @@ vm.nr_hugepages = 3372
 ## Серверное обеспечение (ядро)
 В качестве максимально стабильного и производительного варианта, я бы порекомендовал [Airplane](https://github.com/TECHNOVE/Airplane).
 
-Любиште эксперементировать? Попробуйте [Yatopia](https://github.com/YatopiaMC/Yatopia), но сначала ознакомьтесь с [этой статьей](https://github.com/KennyTV/Yaptapia), и оцените все возможные риски.
+Любите эксперементировать? Попробуйте [Yatopia](https://github.com/YatopiaMC/Yatopia), но сначала ознакомьтесь с [этой статьей](https://github.com/KennyTV/Yaptapia), и оцените все возможные риски.
 ## Дополнительная конфигурация
 ### bukkit.yml
 ```yml
