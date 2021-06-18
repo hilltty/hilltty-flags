@@ -14,7 +14,7 @@
 - [x] Forge
 
 **Готовые настройки:**
-```bash
+```yml
 java -jar -server -Xms6G -Xmx6G -XX:+UseLargePages -XX:LargePageSizeInBytes=2M -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=iu -XX:+UseNUMA -XX:+AlwaysPreTouch -XX:-UseBiasedLocking -XX:+DisableExplicitGC -Dfile.encoding=UTF-8 launcher-airplane.jar --nogui
 ```
 **А теперь внимательно разберем, что за что отвечает:**
@@ -22,7 +22,7 @@ java -jar -server -Xms6G -Xmx6G -XX:+UseLargePages -XX:LargePageSizeInBytes=2M -
 *-Xms6G* и *-Xmx6G*: устанавливает границы использования памяти вашим сервером Minecraft, рекомендую не использовать более 12 Гб для вашего сервера и всегда оставлять 1 - 2 Гб свободной памяти для системы.
 
 *-XX:+UseLargePages* и *-XX:LargePageSizeInBytes=2M*: **только для опытных пользователей**, позволяет использовать зарегистрированую память большыми страницами, ускоряет скорость запуска и отзывчевость сервера. Заставим Linux регистрировать страницы для нас. Добавляем эту строку в `/etc/sysctl.conf`:
-```bash
+```yml
 vm.nr_hugepages = 3372
 ```
 Как мы получили это число? Допустим я хочу зарегистрировать 6 Гб большых страниц, для этого делю 6 Гб на 2.
