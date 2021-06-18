@@ -1,2 +1,1 @@
-# hilltty-flags
-Maximum Performance Launch Flags for Minecraft Server
+# [Русская версия](https://github.com/hilltty/hilltty-flags/blob/main/README-RU.md)
