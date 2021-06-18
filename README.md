@@ -7,9 +7,13 @@
 Я не призываю всех тут же менять свои свойста запуска сервера, я лишь даю понять, что ничего идеального не бывает. Так же я не отвечаю за стабильность работы моих параметров в вашем конкретном случае, все системы разные, а резулаты абсолютно индивидуальны.
 
 ## Флаги
-**Внимание!** ShenandoahGC не совместим с [Lithium](https://github.com/CaffeineMC/lithium-fabric), так что не стоит надеяться на стабильную работу с ядрами использующие его патчи, к примеру Yatopia.
+**Внимание!** Только JDK 16, работоспособность на старых версиях не гарантирована.
 
-Тестирования проводились на самолёте (aka. Airplane) с использованием JDK 16.
+**Поддерживается:**
+- [x] Vanilla
+- [x] Bukkit, Spigot, Paper...
+- [x] Fabric
+- [x] Forge
 
 ```bash
 java -jar -server -Xms16G -Xmx16G -XX:+UseLargePages -XX:LargePageSizeInBytes=2M -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=iu -XX:+UseNUMA -XX:+AlwaysPreTouch -XX:-UseBiasedLocking -XX:+DisableExplicitGC -Dfile.encoding=UTF-8 launcher-airplane.jar --nogui
