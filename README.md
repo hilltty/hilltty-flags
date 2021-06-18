@@ -54,6 +54,18 @@ vm.nr_hugepages = 3372
 В качестве максимально стабильного и производительного варианта, я бы порекомендовал [Airplane](https://github.com/TECHNOVE/Airplane).
 
 Любите эксперементировать? Попробуйте [Yatopia](https://github.com/YatopiaMC/Yatopia), но сначала ознакомьтесь с [этой статьей](https://github.com/KennyTV/Yaptapia), и оцените все возможные риски.
+## Система
+Tuned-adm - это инструмент командной строки, который позволяет переключаться между настроенными профилями для повышения производительности в ряде конкретных случаев использования. Установите пакет с помощью `apt-get`:
+```yml
+sudo apt-get install tuned
+```
+Далее вам нужно подобрать конфиг под вашу систему, я рекомендую использовать `throughput-performance` или `latency-performance`, установите нужный вам профиль:
+```yml
+sudo tuned-adm profile throughput-performance
+```
+Убедиться в том, что изменения применены можно командой `tuned-adm profile`.
+
+Подробная статься о всех профилях и в каких случаях их стоит использовать [здесь](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/performance_tuning_guide/sect-red_hat_enterprise_linux-performance_tuning_guide-tool_reference-tuned_adm).
 ## Дополнительная конфигурация
 ### bukkit.yml
 ```yml
