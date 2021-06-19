@@ -55,8 +55,6 @@ Then we reboot the system to apply the changes.  You can verify that the memory 
 *-XX:+DisableExplicitGC*: Calling System.gc () from custom code forces ShenandoahGC to perform an additional garbage collection cycle, disabling protects against code abusing it.
 ## Server software (core)
 For the most stable and efficient option, I would recommend [Airplane](https://github.com/TECHNOVE/Airplane).
-
-Do you like to experiment?  Try [Yatopia](https://github.com/YatopiaMC/Yatopia), but first check out [this article](https://github.com/KennyTV/Yaptapia) to assess all the risks involved.
 ## System
 Tuned-adm is a command line tool that allows you to switch between tuned profiles to improve performance in a number of specific use cases.  Install the package with `apt-get`:
 ```yml
