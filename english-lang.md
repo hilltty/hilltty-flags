@@ -18,7 +18,7 @@ I do not urge everyone to immediately change their server launch properties, I j
 
 **Finished properties:**
 ```yml
- java -jar -server -Xms6G -Xmx6G -XX: + UseLargePages -XX: LargePageSizeInBytes = 2M -XX: + UnlockExperimentalVMOptions -XX: + UseShenandoahGC -XX: ShenandoahGCMode = iu +XAX: --XX: AlwaysTouch: AlwaysTouch: AlwaysTouch:  UseBiasedLocking -XX: + DisableExplicitGC -Dfile.encoding = UTF-8 launcher-airplane.jar --nogui
+java -jar -server -Xms6G -Xmx6G -XX:+UseLargePages -XX:LargePageSizeInBytes=2M -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=iu -XX:+UseNUMA -XX:+AlwaysPreTouch -XX:-UseBiasedLocking -XX:+DisableExplicitGC -Dfile.encoding=UTF-8 launcher-airplane.jar --nogui
 ```
 **And now we will carefully analyze what is responsible for what:**
 
