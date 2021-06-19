@@ -17,7 +17,7 @@
 ```yml
 java -jar -server -Xms6G -Xmx6G -XX:+UseLargePages -XX:LargePageSizeInBytes=2M -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=iu -XX:+UseNUMA -XX:+AlwaysPreTouch -XX:-UseBiasedLocking -XX:+DisableExplicitGC -Dfile.encoding=UTF-8 launcher-airplane.jar --nogui
 ```
-> Предупреждение `Option UseBiasedLocking was deprecated in version 15.0 and will likely be removed in a future release.` может безопасно игронироваться и использоваться на вашем сервере, флаг UseBiasedLocking прекрасно выполняет свои функции.
+> Предупреждение `Option UseBiasedLocking was deprecated in version 15.0 and will likely be removed in a future release.` может безопасно игнорироваться и использоваться на вашем сервере, флаг UseBiasedLocking прекрасно выполняет свои функции.
 
 **А теперь внимательно разберем, что за что отвечает:**
 
