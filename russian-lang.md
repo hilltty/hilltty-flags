@@ -17,6 +17,8 @@
 ```yml
 java -jar -server -Xms6G -Xmx6G -XX:+UseLargePages -XX:LargePageSizeInBytes=2M -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=iu -XX:+UseNUMA -XX:+AlwaysPreTouch -XX:-UseBiasedLocking -XX:+DisableExplicitGC -Dfile.encoding=UTF-8 launcher-airplane.jar --nogui
 ```
+> Предупреждение `Option UseBiasedLocking was deprecated in version 15.0 and will likely be removed in a future release.` может безопасно игронироваться, флаг UseBiasedLocking корректно выполняет свои функции.
+
 **А теперь внимательно разберем, что за что отвечает:**
 
 *-Xms6G* и *-Xmx6G*: устанавливает границы использования памяти вашим сервером Minecraft, рекомендую не использовать более 12 Гб для вашего сервера и всегда оставлять 1 - 2 Гб свободной памяти для системы.
