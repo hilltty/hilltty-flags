@@ -1,91 +1,91 @@
 ## Why not [Aikar flags](https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/)?
- It's very simple, his garbage collection is based, as he says, on the incredibly stable, but extremely slow by current standards, the D1GC algorithm.  At the same time, it is as outdated as possible to all, everything that it implemented was innovative in the days of JDK 8, now it is not.  Indeed, why change what works?  And it would be worth it.
+It's very simple, his garbage collection is based, as he says, on the incredibly stable, but extremely slow by current standards, the D1GC algorithm.  At the same time, it is as outdated as possible to all, everything that it implemented was innovative in the days of JDK 8, now it is not.  Indeed, why change what works?  And it would be worth it.
 
- I propose to replace it with ShenandoahGC - this is a garbage collector with an extremely short pause time, which is so suitable for our favorite game, we all do not like freezes.  This did not affect stability in any way, during the entire period of uninterrupted testing, not a single problem was identified.
- ## Denial of responsibility
- I do not urge everyone to immediately change their server launch properties, I just make it clear that nothing is perfect.  Also, I am not responsible for the stability of my parameters in your particular case, all systems are different, and the results are absolutely individual.
- ## Flags
- ** Attention! ** Only JDK 16, performance on older versions is not guaranteed.
+I propose to replace it with ShenandoahGC - this is a garbage collector with an extremely short pause time, which is so suitable for our favorite game, we all do not like freezes.  This did not affect stability in any way, during the entire period of uninterrupted testing, not a single problem was identified.
+## Denial of responsibility
+I do not urge everyone to immediately change their server launch properties, I just make it clear that nothing is perfect.  Also, I am not responsible for the stability of my parameters in your particular case, all systems are different, and the results are absolutely individual.
+## Flags
+**Attention!** Only JDK 16, performance on older versions is not guaranteed.
 
- ** Supported: **
- - [x] Vanilla
- - [x] Bukkit, Spigot, Paper ...
- - [x] Fabric
- - [x] Forge
+**Supported:**
+- [x] Vanilla
+- [x] Bukkit, Spigot, Paper ...
+- [x] Fabric
+- [x] Forge
 
- ** Finished properties: **
- `` `yml
+**Finished properties:**
+```yml
  java -jar -server -Xms6G -Xmx6G -XX: + UseLargePages -XX: LargePageSizeInBytes = 2M -XX: + UnlockExperimentalVMOptions -XX: + UseShenandoahGC -XX: ShenandoahGCMode = iu +XAX: --XX: AlwaysTouch: AlwaysTouch: AlwaysTouch:  UseBiasedLocking -XX: + DisableExplicitGC -Dfile.encoding = UTF-8 launcher-airplane.jar --nogui
- ``,
- ** And now we will carefully analyze what is responsible for what: **
+```
+**And now we will carefully analyze what is responsible for what:**
 
- * -Xms6G * and * -Xmx6G *: sets the limits of memory usage by your Minecraft server, I recommend not using more than 12 GB for your server and always leave 1 - 2 GB of free memory for the system.
+ *-Xms6G* and *-Xmx6G*: sets the limits of memory usage by your Minecraft server, I recommend not using more than 12 GB for your server and always leave 1 - 2 GB of free memory for the system.
 
- * -XX: + UseLargePages * and * -XX: LargePageSizeInBytes = 2M *: ** for advanced users only **, allows large pages of registered memory to be used, accelerates startup speed and server responsiveness.  Let's get Linux to register pages for us.  Add this line to `/ etc / sysctl.conf`:
- `` `yml
- vm.nr_hugepages = 3372
- ``,
- How did we get this number?  Let's say I want to register 6 GB of large pages, for this I divide 6 GB by 2.
- `` `yml
- 6 * 1024/2 = 3072
- ``,
- Next, I recommend leaving some free space, and adding 300 to our number.
- `` `yml
- 3072 + 300 = 3372
- ``,
- Then we reboot the system to apply the changes.  You can verify that the memory has been successfully registered with the command `grep / proc / meminfo`.
+ *-XX:+UseLargePages* and *-XX:LargePageSizeInBytes = 2M*: **for advanced users only**, allows large pages of registered memory to be used, accelerates startup speed and server responsiveness.  Let's get Linux to register pages for us.  Add this line to `/etc/sysctl.conf`:
+```yml
+vm.nr_hugepages = 3372
+```
+How did we get this number?  Let's say I want to register 6 GB of large pages, for this I divide 6 GB by 2.
+```yml
+6 * 1024/2 = 3072
+```
+Next, I recommend leaving some free space, and adding 300 to our number.
+```yml
+3072 + 300 = 3372
+```
+Then we reboot the system to apply the changes.  You can verify that the memory has been successfully registered with the command `grep /proc/meminfo`.
 
- ---
- * -XX: + UnlockExperimentalVMOptions *: enables the use of experimental features.
+---
+*-XX:+UnlockExperimentalVMOptions*: enables the use of experimental features.
 
- * -XX: + UseShenandoahGC *: use the Shenandoah project as a garbage collection algorithm (this is how the translator reads this name).
+*-XX:+UseShenandoahGC*: use the Shenandoah project as a garbage collection algorithm (this is how the translator reads this name).
 
- * -XX: ShenandoahGCMode = iu *: turn on the experimental mode of our assembler, it is a mirror of the SATB mode, which will make the markup less conservative, especially regarding access to weak links.
+*-XX:ShenandoahGCMode=iu*: turn on the experimental mode of our assembler, it is a mirror of the SATB mode, which will make the markup less conservative, especially regarding access to weak links.
 
- ---
- * -XX: + UseNUMA *: Enables NUMA interleaving on hosts with multiple sockets, when combined with AlwaysPreTouch, it provides better performance than the default out-of-box configuration.  More details about this architecture can be found [from here] (https://en.wikipedia.org/wiki/Non-uniform_memory_access).
+---
+*-XX:+UseNUMA*: Enables NUMA interleaving on hosts with multiple sockets, when combined with AlwaysPreTouch, it provides better performance than the default out-of-box configuration.  More details about this architecture can be found [from here](https://en.wikipedia.org/wiki/Non-uniform_memory_access).
 
- * -XX: + AlwaysPreTouch *: pre-registration of all allocated memory at once, reduces input delays.
+*-XX:+AlwaysPreTouch*: pre-registration of all allocated memory at once, reduces input delays.
 
- * -XX: -UseBiasedLocking *: There is a trade-off between the bandwidth of unlimited (biased) locking and the safe points the JVM makes to turn them on and off as needed.  For latency-focused workloads, including Minecraft server, it makes sense to disable biased blocking.
+*-XX:-UseBiasedLocking*: There is a trade-off between the bandwidth of unlimited (biased) locking and the safe points the JVM makes to turn them on and off as needed. For latency-focused workloads, including Minecraft server, it makes sense to disable biased blocking.
 
- * -XX: + DisableExplicitGC *: Calling System.gc () from custom code forces ShenandoahGC to perform an additional garbage collection cycle, disabling protects against code abusing it.
- ## Server software (core)
- For the most stable and efficient option, I would recommend [Airplane] (https://github.com/TECHNOVE/Airplane).
+*-XX:+DisableExplicitGC*: Calling System.gc () from custom code forces ShenandoahGC to perform an additional garbage collection cycle, disabling protects against code abusing it.
+## Server software (core)
+For the most stable and efficient option, I would recommend [Airplane](https://github.com/TECHNOVE/Airplane).
 
- Do you like to experiment?  Try [Yatopia] (https://github.com/YatopiaMC/Yatopia), but first check out [this article] (https://github.com/KennyTV/Yaptapia) to assess all the risks involved.
- ## System
- Tuned-adm is a command line tool that allows you to switch between tuned profiles to improve performance in a number of specific use cases.  Install the package with `apt-get`:
- `` `yml
- sudo apt-get install tuned
- ``,
- Next, you need to choose the config for your system, I recommend using `throughput-performance` or` latency-performance`, set the profile you need:
- `` `yml
- sudo tuned-adm profile throughput-performance
- ``,
- You can verify that the changes have been applied with the command `tuned-adm profile`.
+Do you like to experiment?  Try [Yatopia](https://github.com/YatopiaMC/Yatopia), but first check out [this article](https://github.com/KennyTV/Yaptapia) to assess all the risks involved.
+## System
+Tuned-adm is a command line tool that allows you to switch between tuned profiles to improve performance in a number of specific use cases.  Install the package with `apt-get`:
+```yml
+sudo apt-get install tuned
+```
+Next, you need to choose the config for your system, I recommend using `throughput-performance` or` latency-performance`, set the profile you need:
+```yml
+sudo tuned-adm profile throughput-performance
+```
+You can verify that the changes have been applied with the command `tuned-adm profile`.
 
- A detailed article about all profiles and when to use them [here] (https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/performance_tuning_guide/sect-red_hat_enterprise_linux-performance_tuning_guide-tool_referencem-tuning)  ...
- ## Additional configuration
- ### bukkit.yml
- `` `yml
- chunk-gc:
-  period-in-ticks: 600
- ``,
- ** Recommended value for `chunk-gc.period-in-ticks`: **
- Do not allocate more than 12 GB of memory, this will have no effect in most cases.
- |  Memory / Number of players |  up to 30 |  30 - 60 |  60 - 100 |  over 100 |
- |  : --- |  : ---: |  : ---: |  : ---: |  : ---: |
- |  4 GB |  400 |  - |  - |  - |
- |  8 GB |  600 |  400 |  300 |  - |
- |  12 GB |  1200 |  800 |  600 |  400 |
+A detailed article about all profiles and when to use them [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/performance_tuning_guide/sect-red_hat_enterprise_linux-performance_tuning_guide-tool_referencem-tuning).
+## Additional configuration
+### bukkit.yml
+```yml
+chunk-gc:
+ period-in-ticks: 600
+```
+**Recommended value for `chunk-gc.period-in-ticks`:**
+Do not allocate more than 12 GB of memory, this will have no effect in most cases.
+| Memory / Number of players | up to 30 | 30 - 60 | 60 - 100 | over 100 |
+| :--- | :---: | :---: | :---: | :---: |
+| 4 GB | 400 | - | - | - |
+| 8 GB | 600 | 400 | 300 | - |
+| 12 GB | 1200 | 800 | 600 | 400 |
  ### spigot.yml
- `` `yml
+ ```yml
  world-settings:
   default:
    max-tick-time:
     tile: 10
     entity: 20
- ``,
- ## That's all for now
- This page is still under development, so stay tuned :)
+```
+## That's all for now
+This page is still under development, so stay tuned :)
