@@ -1,3 +1,6 @@
+##Attention!
+**[The article]() was translated into English using Google Translate, if you are a native speaker help with translation**
+
 ## Why not [Aikar flags](https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/)?
 It's very simple, his garbage collection is based, as he says, on the incredibly stable, but extremely slow by current standards, the D1GC algorithm.  At the same time, it is as outdated as possible to all, everything that it implemented was innovative in the days of JDK 8, now it is not.  Indeed, why change what works?  And it would be worth it.
 
