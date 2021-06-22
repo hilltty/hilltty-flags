@@ -29,6 +29,8 @@ I do not urge everyone to immediately change their server launch properties, I j
 ```yml
 java -jar -server -Xms6G -Xmx6G -XX:+UseLargePages -XX:LargePageSizeInBytes=2M -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=iu -XX:+UseNUMA -XX:+AlwaysPreTouch -XX:-UseBiasedLocking -XX:+DisableExplicitGC -Dfile.encoding=UTF-8 launcher-airplane.jar --nogui
 ```
+> Warning `Option UseBiasedLocking was deprecated in version 15.0 and will likely be removed in a future release.` can safely be ignored and used on your server, the UseBiasedLocking flag does its job just fine.
+
 **And now we will carefully analyze what is responsible for what:**
 
  *-Xms6G* and *-Xmx6G*: sets the limits of memory usage by your Minecraft server, I recommend not using more than 12 GB for your server and always leave 1 - 2 GB of free memory for the system.
