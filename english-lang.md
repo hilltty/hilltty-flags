@@ -19,7 +19,7 @@ I do not urge everyone to immediately change their server launch properties, I j
 - [ ] Oracle
 - [ ] SAP
 
-**Supported:**
+**Supported servers:**
 - [x] Vanilla
 - [x] Bukkit, Spigot, Paper ...
 - [x] Fabric
