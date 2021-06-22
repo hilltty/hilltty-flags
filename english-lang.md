@@ -8,7 +8,16 @@ I propose to replace it with ShenandoahGC - this is a garbage collector with an 
 ## Denial of responsibility
 I do not urge everyone to immediately change their server launch properties, I just make it clear that nothing is perfect.  Also, I am not responsible for the stability of my parameters in your particular case, all systems are different, and the results are absolutely individual.
 ## Flags
-**Attention!** Only JDK 16, performance on older versions is not guaranteed.
+**Supported JDK assemblies:**
+
+*I recommend using OpenJDK 16*
+- [x] OpenJDK 8+
+- [x] Red Hat 8+
+- [x] Amazon 11+
+- [x] Azul 11+
+- [x] AdoptOpenJDK 11+
+- [ ] Oracle
+- [ ] SAP
 
 **Supported:**
 - [x] Vanilla
