@@ -41,7 +41,7 @@ vm.nr_hugepages = 3372
 ```
 How did we get this number?  Let's say I want to register 6 GB of large pages, for this I divide 6 GB by 2.
 ```yml
-6 * 1024/2 = 3072
+6 * 1024 / 2 = 3072
 ```
 Next, I recommend leaving some free space, and adding 300 to our number.
 ```yml
