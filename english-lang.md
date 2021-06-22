@@ -2,7 +2,7 @@
 **[The article](https://github.com/hilltty/hilltty-flags/blob/main/russian-lang.md) was translated into English using Google Translate, if you are a native speaker please help with translation**
 
 ## Why not [Aikar flags](https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/)?
-It's very simple, his garbage collection is based, as he says, on the incredibly stable, but extremely slow by current standards, the G1GC algorithm.  At the same time, it is as outdated as possible to all, everything that it implemented was innovative in the days of JDK 8, now it is not.  Indeed, why change what works?  And it would be worth it.
+It's very simple. His garbage collection is based on the G1GC algorithm. As he said, the algorithm is incredibly stable, but it is extremely slow by current standards. At the same time, it is hugely outdated, everything that it implemented was innovative in the days of JDK 8, but now it is not. Indeed, why change something that works? Well, you should.
 
 I propose to replace it with ShenandoahGC - this is a garbage collector with an extremely short pause time, which is so suitable for our favorite game, we all do not like freezes.  This did not affect stability in any way, during the entire period of uninterrupted testing, not a single problem was identified.
 ## Denial of responsibility
