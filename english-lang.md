@@ -47,7 +47,7 @@ Next, I recommend leaving some free space, and adding 300 to our number.
 ```yml
 3072 + 300 = 3372
 ```
-Then we reboot the system to apply the changes.  You can verify that the memory has been successfully registered with the command `grep /proc/meminfo`.
+Then we reboot the system to apply the changes. You can verify that the memory has been successfully registered with the command `grep -i hugepages /proc/meminfo`.
 
 ---
 *-XX:+UnlockExperimentalVMOptions*: enables the use of experimental features.
