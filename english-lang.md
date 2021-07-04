@@ -6,7 +6,7 @@ It's very simple. His garbage collection is based on the G1 algorithm. As he sai
 
 I propose to replace it with Shenandoah - this is a garbage collector with an extremely short pause time, which is so suitable for our favorite game, we all do not like freezes.  This did not affect stability in any way, during the entire period of uninterrupted testing, not a single problem was identified.
 ## Denial of responsibility
-I do not urge everyone to immediately change their server launch properties, I just make it clear that nothing is perfect.  Also, I am not responsible for the stability of my parameters in your particular case, all systems are different, and the results are absolutely individual.
+I do not urge everyone to immediately change their server launch properties, I just want to make it clear that nothing is perfect. Also, I am not responsible for the stability of my parameters in your particular use case, all systems are different, and the results may vary.
 ## Flags
 **Supported JDK assemblies:**
 
@@ -39,11 +39,11 @@ java -jar -server -Xms6G -Xmx6G -XX:+UseLargePages -XX:LargePageSizeInBytes=2M -
 ```yml
 vm.nr_hugepages = 3372
 ```
-How did we get this number?  Let's say I want to register 6 GB of large pages, for this I divide 6 GB by 2.
+How did we get this number?  Let's say I want to register 6 GB of large pages, for this, I divide 6 GB by 2.
 ```yml
 6 * 1024 / 2 = 3072
 ```
-Next, I recommend leaving some free space, and adding 300 to our number.
+Next, I recommend leaving some free space and adding 300 to our number.
 ```yml
 3072 + 300 = 3372
 ```
@@ -61,13 +61,13 @@ Then we reboot the system to apply the changes. You can verify that the memory h
 
 *-XX:+AlwaysPreTouch*: pre-registration of all allocated memory at once, reduces input delays.
 
-*-XX:-UseBiasedLocking*: There is a trade-off between the bandwidth of unlimited (biased) locking and the safe points the JVM makes to turn them on and off as needed. For latency-focused workloads, including Minecraft server, it makes sense to disable biased blocking.
+*-XX:-UseBiasedLocking*: There is a trade-off between the bandwidth of unlimited (biased) locking and the safe points the JVM makes to turn them on and off as needed. For latency-focused workloads, including Minecraft servers, it makes sense to disable biased blocking.
 
 *-XX:+DisableExplicitGC*: Calling System.gc () from custom code forces ShenandoahGC to perform an additional garbage collection cycle, disabling protects against code abusing it.
 ## Server software (core)
 For the most stable and efficient option, I would recommend [Airplane](https://github.com/TECHNOVE/Airplane).
 ## System
-Tuned-adm is a command line tool that allows you to switch between tuned profiles to improve performance in a number of specific use cases.  Install the package with `apt-get`:
+Tuned-adm is a command-line tool that allows you to switch between tuned profiles to improve performance in a number of specific use cases.  Install the package with `apt-get`:
 ```yml
 sudo apt-get install tuned
 ```
@@ -85,7 +85,7 @@ chunk-gc:
  period-in-ticks: 600
 ```
 **Recommended value for `chunk-gc.period-in-ticks`:**
-Do not allocate more than 12 GB of memory, this will have no effect in most cases.
+Do not allocate more than 12 GB of memory, this will not affect most cases.
 | Memory / Number of players | up to 30 | 30 - 60 | 60 - 100 | over 100 |
 | :--- | :---: | :---: | :---: | :---: |
 | 4 GB | 400 | - | - | - |
