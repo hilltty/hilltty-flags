@@ -6,7 +6,7 @@ It's very simple. His garbage collection is based on the G1 algorithm. As he sai
 
 I propose to replace it with Shenandoah - this is a garbage collector with an extremely short pause time, which is so suitable for our favorite game, we all do not like freezes.  This did not affect stability in any way, during the entire period of uninterrupted testing, not a single problem was identified.
 ## Denial of responsibility
-I do not urge everyone to immediately change their server launch properties, I just want to make it clear that nothing is perfect.  Also, I am not responsible for the stability of my parameters in your particular use case, all systems are different, and the results may vary.
+I do not urge everyone to immediately change their server launch properties, I just want to make it clear that nothing is perfect. Also, I am not responsible for the stability of my parameters in your particular use case, all systems are different, and the results may vary.
 ## Flags
 **Supported JDK assemblies:**
 
