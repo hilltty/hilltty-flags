@@ -1,6 +1,3 @@
-## Attention!
-**[The article](https://github.com/hilltty/hilltty-flags/blob/main/russian-lang.md) was translated into English using Google Translate, if you are a native speaker please help with translation**
-
 ## Why not [Aikar flags](https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/)?
 It's very simple. His garbage collection is based on the G1 algorithm. As he said, the algorithm is incredibly stable, but it is extremely slow by current standards. At the same time, it is hugely outdated, everything that it implemented was innovative in the days of JDK 8, but now it is not. Indeed, why change something that works? Well, you should.
 
