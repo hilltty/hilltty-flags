@@ -83,7 +83,7 @@ A detailed article about all profiles and when to use them [here](https://access
 chunk-gc:
  period-in-ticks: 600
 ```
-**Recommended value for `chunk-gc.period-in-ticks`:**
+**Recommended value for `chunk-gc.period-in-ticks`:**  
 Do not allocate more than 12 GB of memory, this will not affect most cases.
 | Memory / Number of players | up to 30 | 30 - 60 | 60 - 100 | over 100 |
 | :--- | :---: | :---: | :---: | :---: |
