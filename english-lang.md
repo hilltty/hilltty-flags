@@ -90,13 +90,3 @@ Do not allocate more than 12 GB of memory, this will not affect most cases.
 | 4 GB | 400 | - | - | - |
 | 8 GB | 600 | 400 | 300 | - |
 | 12 GB | 1200 | 800 | 600 | 400 |
- ### spigot.yml
- ```yml
- world-settings:
-  default:
-   max-tick-time:
-    tile: 10
-    entity: 20
-```
-## That's all for now
-This page is still under development, so stay tuned :)
