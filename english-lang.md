@@ -76,7 +76,7 @@ sudo tuned-adm profile throughput-performance
 ```
 You can verify that the changes have been applied with the command `tuned-adm profile`.
 
-A detailed article about all profiles and when to use them [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/performance_tuning_guide/sect-red_hat_enterprise_linux-performance_tuning_guide-tool_referencem-tuning).
+A detailed article about all profiles and when to use them [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/performance_tuning_guide/sect-red_hat_enterprise_linux-performance_tuning_guide-tool_reference-tuned_adm).
 ## Additional configuration
 ### bukkit.yml
 ```yml
