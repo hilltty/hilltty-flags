@@ -85,7 +85,7 @@ period-in-ticks: 600
 '''
 **Rekomendowana wartośc dla 'chunk-gc.period-in-ticks':**
 Nie należy przydzielić więcej niż 12 GB pamięci, nie będzie to miało wpływu na większość przypadków.
-| Pamięć / Liczba gracz | do 30 | 30 - 60 | 60 - 100 | ponad 100 |
+| Pamięć / Liczba graczy | do 30 | 30 - 60 | 60 - 100 | ponad 100 |
 | :--- | :---: | :---: | :---: | :---: |
 | 4 GB | 400 | - | - | - |
 | 8 GB | 600 | 400 | 300 | - |
