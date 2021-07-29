@@ -25,28 +25,28 @@ Nie namawiam wszystkich do natychmiastowej zmiany właściwości uruchamiania se
 - [x] Forge
 
 **Skończone parametry:**
-'''yml
+```yml
 java -jar -server -Xms6G -Xmx6G -XX:+UseLargePages -XX:LargePageSizeInBytes=2M -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=iu -XX:+UseNUMA -XX:+AlwaysPreTouch -XX:-UseBiasedLocking -XX:+DisableExplicitGC -Dfile.encoding=UTF-8 launcher-airplane.jar --nogui
-'''
-> Ostrzeżenie 'Option UseBiasedLocking was deprecated in version 15.0 and will likely be removed in a future release.' może być bezpiecznie zignorowane i użyte na twoim serwerze, flaga 'UseBiasedLocking' wykonuje swoją pracę dobrze.
+```
+> Ostrzeżenie `Option UseBiasedLocking was deprecated in version 15.0 and will likely be removed in a future release.` może być bezpiecznie zignorowane i użyte na twoim serwerze, flaga `UseBiasedLocking` wykonuje swoją pracę dobrze.
 
 **A teraz dokładnie przeanalizujemy, co jest odpowiedzialne za co:**
 
 *-Xms6G* and *-Xmx6G*: ustawia limit użycia pamięci przez twój serwer Minecraft, Ja rekomenduje, żeby nie używac więcej niż 12 GB dla twojego serwera i żeby zawsze zostawic 1 - 2 GB wolnej pamięci dla twojego systemu.
 
-*-XX:+UseLargePages* i *-XX:LargePageSizeInBytes = 2M*: **tylko dla zaawansowanych użytkowników**, pozwala użycie dużych stron zarejestowanej pamięci, żeby była użyta, akceleruje prędkość uruchomienia serwera i jego responsywność. Pozwólmy sobie na rejestrację stron w systemie Linux. Dodaj tą linię do '/etc/sysctl.conf':
-'''yml
+*-XX:+UseLargePages* i *-XX:LargePageSizeInBytes = 2M*: **tylko dla zaawansowanych użytkowników**, pozwala użycie dużych stron zarejestowanej pamięci, żeby była użyta, akceleruje prędkość uruchomienia serwera i jego responsywność. Pozwólmy sobie na rejestrację stron w systemie Linux. Dodaj tą linię do `/etc/sysctl.conf`:
+```yml
 vm.nr_hugepages = 3372
-'''
+```
 Jak uzyskaliśmy ten numer?, Powiedzmy, że chce zarejestrować 6 GB pamięci dla dużych stron, do tego, dzielę 6 GB przez 2.
-'''yml
+```yml
 6 * 1024 / 2 = 3072
-'''
+```
 Następnie, rekomenduje zostawienie trochę wolnego miejsca i dodania 300 do naszego numeru.
-'''yml
+```yml
 3072 + 300 = 3372
-'''
-Po tym, uruchamiamy ponownie system, żeby zastosować zmiany. Możesz zweryfikować to, że pamięć została pomyślnie zarejestowana z tą komendą 'grep -i hugepages /proc/meminfo'.
+```
+Po tym, uruchamiamy ponownie system, żeby zastosować zmiany. Możesz zweryfikować to, że pamięć została pomyślnie zarejestowana z tą komendą `grep -i hugepages /proc/meminfo`.
 
 ---
 *-XX:+UnlockExperimentalVMOptions*: pozwala użycie eksperymentalnych funkcji.
@@ -54,6 +54,7 @@ Po tym, uruchamiamy ponownie system, żeby zastosować zmiany. Możesz zweryfiko
 *-XX:+UseShenandoahGC*: używa projektu Shenandoah, jako algorytmu GC (tak, tłumacz odczytuje tę nazwę).
 
 *-XX:ShenandoahGCMode=iu*: włączyć tryb eksperymentalny naszego asemblera, jest to lustro trybu SATB, co sprawi, że znaczniki będą mniej konserwatywne, zwłaszcza w odniesieniu do dostępu do słabych ogniw.
+
 ---
 *-XX:+UseNUMA*: Umożliwia interleaving NUMA na hostach z wieloma gniazdami, w połączeniu z AlwaysPreTouch zapewnia lepszą wydajność niż domyślna konfiguracja out-of-box. Więcej informacji na temat tej architektury można znaleźć [tutaj](https://en.wikipedia.org/wiki/Non-uniform_memory_access).
 
@@ -66,24 +67,24 @@ Po tym, uruchamiamy ponownie system, żeby zastosować zmiany. Możesz zweryfiko
 ## Oprogramowanie serwera (rdzeń)
 Dla najbardziej stabilnej i wydajnej opcji, polecam [Airplane](https://github.com/TECHNOVE/Airplane).
 ## System
-Tuned-adm to jest narzędzie w terminalu, który pozwala przełączać się między dostrojonymi profilami, aby poprawić wydajność w wielu przypadkach użycia. Zainstaluj pakiet, używając 'apt-get':
-'''yml
+Tuned-adm to jest narzędzie w terminalu, który pozwala przełączać się między dostrojonymi profilami, aby poprawić wydajność w wielu przypadkach użycia. Zainstaluj pakiet, używając `apt-get`:
+```yml
 sudo apt-get install tuned
-'''
-Następnie musisz wybrać konfigurację dla swojego systemu, polecam użycie profilu 'throughput-performance', albo ' latency-performance', którego potrzebujesz:
-'''yml
+```
+Następnie musisz wybrać konfigurację dla swojego systemu, polecam użycie profilu `throughput-performance`, albo ` latency-performance`, którego potrzebujesz:
+```yml
 sudo tuned-adm profile throughput-performance
-'''
-Można sprawdzić, czy zmiany zostały zastosowane za pomocą polecenia 'tuned-adm profile'.
+```
+Można sprawdzić, czy zmiany zostały zastosowane za pomocą polecenia `tuned-adm profile`.
 
 Szczegółowy artykuł o wszystkich profilach i o tym, kiedy z nich korzystać [tutaj](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/performance_tuning_guide/sect-red_hat_enterprise_linux-performance_tuning_guide-tool_reference-tuned_adm).
 ## Dodatkowa konfiguracja
 ### bukkit.yml
-'''yml
+```yml
 chunk-gc:
 period-in-ticks: 600
-'''
-**Rekomendowana wartośc dla 'chunk-gc.period-in-ticks':**
+```
+**Rekomendowana wartośc dla `chunk-gc.period-in-ticks`:**
 Nie należy przydzielić więcej niż 12 GB pamięci, nie będzie to miało wpływu na większość przypadków.
 | Pamięć / Liczba gracz | do 30 | 30 - 60 | 60 - 100 | ponad 100 |
 | :--- | :---: | :---: | :---: | :---: |
