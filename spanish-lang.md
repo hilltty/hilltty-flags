@@ -1,5 +1,5 @@
-> **Help with translation**  
-> If you notice any mistakes or shortcomings in the translation, please report and correct them. Thank you!
+> **Ayuda a la traducción**  
+> Si observa algún error o carencia en la traducción, le rogamos que lo comunique y lo corrija. Gracias.
 
 ## ¿Por qué no [Aikar flags](https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/)?
 
