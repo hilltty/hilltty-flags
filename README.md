@@ -8,6 +8,9 @@
 - [greysilly7](https://github.com/greysilly7)
 - [foss-mc](https://github.com/foss-mc)
 
+**Русский перевод**
+- [hilltty](https://github.com/hilltty)
+
 **French translation**
 - [RAFF47](https://github.com/RAFF47)
 
