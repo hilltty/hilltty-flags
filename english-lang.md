@@ -88,4 +88,3 @@ Do not allocate more than 12 GB of memory, this will not affect most cases.
 | 4 GB | 400 | - | - | - |
 | 8 GB | 600 | 400 | 300 | - |
 | 12 GB | 1200 | 800 | 600 | 400 |
-
