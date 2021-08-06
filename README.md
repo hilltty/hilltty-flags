@@ -4,6 +4,7 @@
 - [Русский](/russian-lang.md)
 - [Français](/french-lang.md)
 - [Polski](/polish-lang.md)
+- [Spanish](/spanish-lang.md)
 
 ## Special thanks
 
