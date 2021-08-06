@@ -1,6 +1,6 @@
 > **Aide à la traduction**  
 > Si vous remarquez des erreurs ou des défauts dans la traduction, veuillez les signaler et les corriger. Merci !
-## Pourquoi pas [Aikar flags] (https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/) ?
+## Pourquoi pas [Aikar flags](https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/)?
 C'est très simple. Son garbage collector est basé sur l'algorithme G1. Comme il l'a dit, l'algorithme est incroyablement stable, mais il est extrêmement lent par rapport aux normes actuelles. En même temps, il est terriblement dépassé, tout ce qu'il mettait en œuvre était innovant à l'époque du JDK 8, mais plus maintenant. En effet, pourquoi changer quelque chose qui fonctionne ? Eh bien, vous devriez.
 
 Je propose de le remplacer par Shenandoah - il s'agit d'un garbage collector avec un temps de pause extrêmement court, ce qui convient parfaitement à notre jeu préféré, nous détestons tous les freezes.  Cela n'a en aucun cas affecté la stabilité, durant l'antière période de tests ininterrompus, pas un seul problème n'a été identifié.
@@ -56,7 +56,7 @@ Puis nous redémarrons le système pour appliquer les changements. Vous pouvez v
 *-XX:ShenandoahGCMode=iu* : active le mode expérimental de notre assembleur, c'est un miroir du mode SATB, qui rendra le markup moins conservateur, surtout en ce qui concerne l'accès aux liens faibles.
 
 ---
-*-XX:+UseNUMA* : Active l'entrelacement NUMA sur les hôtes avec plusieurs sockets, lorsqu'il est combiné avec AlwaysPreTouch, il fournit de meilleures performances que la configuration par défaut.  Vous trouverez plus de détails sur cette architecture [ici] (https://en.wikipedia.org/wiki/Non-uniform_memory_access).
+*-XX:+UseNUMA* : Active l'entrelacement NUMA sur les hôtes avec plusieurs sockets, lorsqu'il est combiné avec AlwaysPreTouch, il fournit de meilleures performances que la configuration par défaut.  Vous trouverez plus de détails sur cette architecture [ici](https://en.wikipedia.org/wiki/Non-uniform_memory_access).
 
 *-XX:+AlwaysPreTouch* : pré-enregistrement de toute la mémoire allouée en une seule fois, réduit les délais d'entrée.
 
@@ -86,7 +86,7 @@ chunk-gc :
 **Valeur recommandée pour `chunk-gc.period-in-ticks`:**  
 N'allouez pas plus de 12 Go de mémoire, cela n'affectera pas la plupart des cas.
 | Mémoire / Nombre de joueurs | jusqu'à 30 | de 30 à 60 | de 60 à 100 | plus de 100 |
-| :--- | :--- : | :--- : | :--- : | :--- : |
-| 4 GB | 400 | - | - | - | | |
-| 8 GB | 600 | 400 | 300 | - | |
+| :--- | :---: | :---: | :---: | :---: |
+| 4 GB | 400 | - | - | - | |
+| 8 GB | 600 | 400 | 300 | - |
 | 12 GB | 1200 | 800 | 600 | 400 |
