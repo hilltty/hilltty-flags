@@ -1,11 +1,9 @@
 > **Help with translation**  
 > If you notice any mistakes or shortcomings in the translation, please report and correct them. Thank you!
 ## Why not [Aikar flags](https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/)?
-It's very simple. His garbage collection is based on the G1 algorithm. As he said, the algorithm is incredibly stable, but it is extremely slow by current standards. At the same time, it is hugely outdated, everything that it implemented was innovative in the days of JDK 8, but now it is not. Indeed, why change something that works? Well, you should.
+His garbage collection is based on the G1 algorithm. As he said, the algorithm is incredibly stable but is incredibly slow by current standards. At the same time, it is hugely outdated, everything that it implemented was innovative in the days of JDK 8, but now it is not. Indeed, why change something that works? Well, you should.
 
-I propose to replace it with Shenandoah - this is a garbage collector with an extremely short pause time, which is so suitable for our favorite game, we all do not like freezes.  This did not affect stability in any way, during the entire period of uninterrupted testing, not a single problem was identified.
-## Denial of responsibility
-I do not urge everyone to immediately change their server launch properties, I just want to make it clear that nothing is perfect. Also, I am not responsible for the stability of my parameters in your particular use case, all systems are different, and the results may vary.
+I propose to replace it with Shenandoah - this is a garbage collector with an incredibly short pause time, which is so suitable for our favorite game, we all do not like freezes. This did not affect stability during the entire period of uninterrupted testing. Not a single problem was identified.
 ## Flags
 **Supported JDK assemblies:**
 
@@ -66,7 +64,7 @@ Then we reboot the system to apply the changes. You can verify that the memory h
 ## Server software (core)
 For the most stable and efficient option, I would recommend [Airplane](https://github.com/TECHNOVE/Airplane).
 ## System
-Tuned-adm is a command-line tool that allows you to switch between tuned profiles to improve performance in a number of specific use cases.  Install the package with `apt-get`:
+Tuned-adm is a command-line tool that allows you to switch between tuned profiles to improve performance in many specific use cases.  Install the package with `apt-get`:
 ```yml
 sudo apt-get install tuned
 ```
@@ -90,3 +88,4 @@ Do not allocate more than 12 GB of memory, this will not affect most cases.
 | 4 GB | 400 | - | - | - |
 | 8 GB | 600 | 400 | 300 | - |
 | 12 GB | 1200 | 800 | 600 | 400 |
+
