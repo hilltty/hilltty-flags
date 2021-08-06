@@ -13,3 +13,5 @@
 
 **Polish translation**
 - [Tofik ♡](https://github.com/Toffikk)
+
+![](https://static.wikia.nocookie.net/minecraft_gamepedia/images/1/1a/Ominous_Banner.gif/revision/latest/scale-to-width-down/225?cb=20191104133115)
