@@ -9,6 +9,8 @@
 - [Polski](/polish-lang.md)
 - [Spanish](/spanish-lang.md)
 
+> You can also make a translation into your language or help with correcting errors in the current
+
 ## Special Thanks
 
 **Helped with translation into English**
