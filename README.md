@@ -1,15 +1,18 @@
 ## Choose your language
+
+**Official translations (last change: [05.08.2021](https://github.com/hilltty/hilltty-flags/commits/main))**
 - [English](/english-lang.md)
 - [Русский](/russian-lang.md)
+
+**Other people's translations (may update with a long delay or not update at all)**
 - [Français](/french-lang.md)
 - [Polski](/polish-lang.md)
-## Special thanks
-**English translation**
+
+## Special Thanks
+
+**Helped with translation into English**
 - [greysilly7](https://github.com/greysilly7)
 - [foss-mc](https://github.com/foss-mc)
-
-**Русский перевод**
-- [hilltty](https://github.com/hilltty)
 
 **French translation**
 - [RAFF47](https://github.com/RAFF47)
