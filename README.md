@@ -1,6 +1,6 @@
 ## Choose your language
 
-**Official translations (last change: [05.08.2021](https://github.com/hilltty/hilltty-flags/commits/main))**
+**Official translations (last change: [07.08.2021](https://github.com/hilltty/hilltty-flags/commits/main))**
 - [English](/english-lang.md)
 - [Русский](/russian-lang.md)
 
