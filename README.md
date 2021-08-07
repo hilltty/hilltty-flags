@@ -1,3 +1,5 @@
+[![](https://img.shields.io/discord/873575343548665856.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/f9dupwukVG)
+
 ## Choose your language
 
 **Official translations (last change: [07.08.2021](https://github.com/hilltty/hilltty-flags/commits/main))**
