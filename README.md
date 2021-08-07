@@ -18,10 +18,10 @@
 **French translation**
 - [RAFF47](https://github.com/RAFF47)
 
-**Spanish translation**
-- [greysilly7](https://github.com/greysilly7)
-
 **Polish translation**
 - [Tofik ♡](https://github.com/Toffikk)
+
+**Spanish translation**
+- [greysilly7](https://github.com/greysilly7)
 
 <img src="https://static.wikia.nocookie.net/minecraft/images/6/6a/Axolotls_Swimming.gif/revision/latest?cb=20201219210623" width="150">
