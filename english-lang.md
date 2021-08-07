@@ -40,7 +40,7 @@ java -jar -server -Xms6G -Xmx6G -XX:+UseLargePages -XX:LargePageSizeInBytes=2M -
 
  *-Xms6G* and *-Xmx6G*: sets the limits of memory usage by your Minecraft server, I recommend not using more than 12 GB for your server and always leave 1 - 2 GB of free memory for the system.
 
- *-XX:+UseLargePages* and *-XX:LargePageSizeInBytes = 2M*: **for advanced users only**, allows large pages of registered memory to be used, accelerates startup speed and server responsiveness.  Let's get Linux to register pages for us.  Add this line to `/etc/sysctl.conf`:
+ *-XX:+UseLargePages* and *-XX:LargePageSizeInBytes = 2M*: allows large pages of registered memory to be used, accelerates startup speed and server responsiveness.  Let's get Linux to register pages for us.  Add this line to `/etc/sysctl.conf`:
 
 ```yml
 vm.nr_hugepages = 3372
@@ -107,8 +107,10 @@ chunk-gc:
  period-in-ticks: 600
 ```
 
-**Recommended value for `chunk-gc.period-in-ticks`:**  
+**Recommended value for `chunk-gc.period-in-ticks`:**
+
 Do not allocate more than 12 GB of memory, this will not affect most cases.
+
 | Memory / Number of players | up to 30 | 30 - 60 | 60 - 100 | over 100 |
 | :--- | :---: | :---: | :---: | :---: |
 | 4 GB | 400 | - | - | - |
