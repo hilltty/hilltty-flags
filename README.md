@@ -1,5 +1,3 @@
-[![](https://img.shields.io/discord/873575343548665856.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/f9dupwukVG)
-
 ## Choose your language
 
 **Official translations (last change: [07.08.2021](https://github.com/hilltty/hilltty-flags/commits/main))**
@@ -12,6 +10,12 @@
 - [Spanish](/spanish-lang.md)
 
 > You can also make a translation into your language or help with correcting errors in the current
+
+## Contact
+
+[![](https://img.shields.io/discord/873575343548665856.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/f9dupwukVG)
+
+Join our [Discord](https://discord.gg/f9dupwukVG)
 
 ## Special Thanks
 
