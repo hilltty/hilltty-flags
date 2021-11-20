@@ -11,7 +11,7 @@ I propose to replace it with Shenandoah - this is a garbage collector with an in
 
 **Supported JDK assemblies:**
 
-*I recommend using OpenJDK 16*
+*I recommend using OpenJDK 17*
 
 - [x] OpenJDK 8+
 - [x] Red Hat 8+

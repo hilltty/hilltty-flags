@@ -15,7 +15,7 @@ Je ne demande pas à tout le monde de modifier immédiatement les propriétés d
 
 **JDK supportés:**
 
-*Je recommande d'utiliser OpenJDK 16*
+*Je recommande d'utiliser OpenJDK 17*
 
 - [x] OpenJDK 8+
 - [x] Red Hat 8+
@@ -44,13 +44,13 @@ java -jar -server -Xms6G -Xmx6G -XX:+UseLargePages -XX:LargePageSizeInBytes=2M -
 
  *-Xms6G* et *-Xmx6G* : définit les limites d'utilisation de la mémoire par votre serveur Minecraft, je recommande de ne pas utiliser plus de 12 Go pour votre serveur et de toujours laisser 1 - 2 Go de mémoire libre pour le système.
 
- *-XX:+UseLargePages* et *-XX:LargePageSizeInBytes = 2M* : **pour les utilisateurs avancés uniquement**, permet d'utiliser de large pages de mémoire, accélère la vitesse de démarrage et la réactivité du serveur.  Allons faire en sorte que Linux enregistre des pages pour nous.  Ajoutez cette ligne à `/etc/sysctl.conf` :
+ *-XX:+UseLargePages* et *-XX:LargePageSizeInBytes = 2M* : **pour les utilisateurs avancés uniquement**, permet d'utiliser de large pages de mémoire, accélère la vitesse de démarrage et la réactivité du serveur. Allons faire en sorte que Linux enregistre des pages pour nous. Ajoutez cette ligne à `/etc/sysctl.conf` :
 
 ```yml
 vm.nr_hugepages = 3372
 ```
 
-Comment avons-nous obtenu ce nombre ?  Disons que je veux enregistrer 6 Go de large pages, pour cela, je divise 6 Go par 2.
+Comment avons-nous obtenu ce nombre ? Disons que je veux enregistrer 6 Go de large pages, pour cela, je divise 6 Go par 2.
 
 ```yml
 6 * 1024 / 2 = 3072
@@ -72,7 +72,7 @@ Puis nous redémarrons le système pour appliquer les changements. Vous pouvez v
 *-XX:ShenandoahGCMode=iu* : active le mode expérimental de notre assembleur, c'est un miroir du mode SATB, qui rendra le markup moins conservateur, surtout en ce qui concerne l'accès aux liens faibles.
 
 ---
-*-XX:+UseNUMA* : Active l'entrelacement NUMA sur les hôtes avec plusieurs sockets, lorsqu'il est combiné avec AlwaysPreTouch, il fournit de meilleures performances que la configuration par défaut.  Vous trouverez plus de détails sur cette architecture [ici](https://en.wikipedia.org/wiki/Non-uniform_memory_access).
+*-XX:+UseNUMA* : Active l'entrelacement NUMA sur les hôtes avec plusieurs sockets, lorsqu'il est combiné avec AlwaysPreTouch, il fournit de meilleures performances que la configuration par défaut. Vous trouverez plus de détails sur cette architecture [ici](https://en.wikipedia.org/wiki/Non-uniform_memory_access).
 
 *-XX:+AlwaysPreTouch* : pré-enregistrement de toute la mémoire allouée en une seule fois, réduit les délais d'entrée.
 
