@@ -11,7 +11,7 @@ Propongo sustituirlo por Shenandoah - se trata de un recolector de basura con un
 
 **Supported JDK assemblies:**
 
-*Recomiendo usar OpenJDK 16*
+*Recomiendo usar OpenJDK 17*
 
 - [x] OpenJDK 8+
 - [x] Red Hat 8+

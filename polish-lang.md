@@ -15,7 +15,7 @@ Nie namawiam wszystkich do natychmiastowej zmiany właściwości uruchamiania se
 
 **Obsługiwane rodzaje/wersje JDK:**
 
-*Rekomenduję użycie OpenJDK 16*
+*Rekomenduję użycie OpenJDK 17*
 
 - [x] OpenJDK 8+
 - [x] Red Hat 8+
