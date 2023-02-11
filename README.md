@@ -8,6 +8,7 @@
 - [Français](/french-lang.md)
 - [Polski](/polish-lang.md)
 - [Spanish](/spanish-lang.md)
+- [German](/german-lang.md)
 
 > You can also make a translation into your language or help with correcting errors in the current
 
@@ -31,5 +32,8 @@ Join our [Discord](https://discord.gg/f9dupwukVG)
 
 **Spanish translation**
 - [greysilly7](https://github.com/greysilly7)
+
+**German translation**
+- [DasSharkk](https://github.com/dassharkk)
 
 <img src="https://static.wikia.nocookie.net/minecraft/images/6/6a/Axolotls_Swimming.gif/revision/latest?cb=20201219210623" width="150">
