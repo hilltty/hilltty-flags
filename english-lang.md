@@ -74,7 +74,7 @@ Then we reboot the system to apply the changes. You can verify that the memory h
 
 *-XX:-UseBiasedLocking*: There is a trade-off between the bandwidth of unlimited (biased) locking and the safe points the JVM makes to turn them on and off as needed. For latency-focused workloads, including Minecraft servers, it makes sense to disable biased blocking.
 
-*-XX:+DisableExplicitGC*: Calling System.gc () from custom code forces ShenandoahGC to perform an additional garbage collection cycle, disabling protects against code abusing it.
+*-XX:+DisableExplicitGC*: Calling `System.gc()` from custom code forces ShenandoahGC to perform an additional garbage collection cycle, disabling protects against code abusing it.
 
 ## Server software (core)
 
@@ -82,10 +82,10 @@ For the most stable and efficient option, I would recommend [Airplane](https://g
 
 ## System
 
-Tuned-adm is a command-line tool that allows you to switch between tuned profiles to improve performance in many specific use cases.  Install the package with `apt-get`:
+Tuned-adm is a command-line tool that allows you to switch between tuned profiles to improve performance in many specific use cases.  Install the package with `apt`:
 
 ```yml
-sudo apt-get install tuned
+sudo apt install tuned
 ```
 
 Next, you need to choose the config for your system, I recommend using `throughput-performance` or`latency-performance`, set the profile you need:

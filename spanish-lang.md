@@ -75,7 +75,7 @@ A continuación, reiniciamos el sistema para aplicar los cambios. Puedes verific
 
 *-XX:-UseBiasedLocking*: Hay una compensación entre el ancho de banda del bloqueo ilimitado (sesgado) y los puntos seguros que hace la JVM para activarlos y desactivarlos según sea necesario. Para las cargas de trabajo centradas en la latencia, incluidos los servidores de Minecraft, tiene sentido desactivar el bloqueo sesgado.
 
-*-XX:+DisableExplicitGC*: Llamar a System.gc() desde el código personalizado obliga a ShenandoahGC a realizar un ciclo adicional de recolección de basura, lo que deshabilita la protección contra el código que abusa de ella.
+*-XX:+DisableExplicitGC*: Llamar a `System.gc()` desde el código personalizado obliga a ShenandoahGC a realizar un ciclo adicional de recolección de basura, lo que deshabilita la protección contra el código que abusa de ella.
 
 ## Software de servidor (núcleo)
 
@@ -83,10 +83,10 @@ Para la opción más estable y eficiente, yo recomendaría [Airplane](https://gi
 
 ## System
 
-Tuned-adm es una herramienta de línea de comandos que permite cambiar entre perfiles ajustados para mejorar el rendimiento en muchos casos de uso específicos.  Instale el paquete con `apt-get`:
+Tuned-adm es una herramienta de línea de comandos que permite cambiar entre perfiles ajustados para mejorar el rendimiento en muchos casos de uso específicos.  Instale el paquete con `apt`:
 
 ```yml
-sudo apt-get install tuned
+sudo apt install tuned
 ```
 
 A continuación, tienes que elegir la configuración para tu sistema, te recomiendo usar `throughput-performance` o `latency-performance`, establece el perfil que necesites:

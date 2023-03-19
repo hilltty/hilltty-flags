@@ -74,7 +74,7 @@ Dann starten wir das System neu, um die Änderungen zu aktivieren. Mit dem Comma
 
 *-XX:-UseBiasedLocking*: Es gibt einen Kompromiss zwischen der Bandbreite der unbegrenzten (biased) Sperrung und den safe points, die die JVM macht, um sie nach Bedarf ein- und auszuschalten. Für latenzorientierte Workloads, einschließlich Minecraft-Server, ist es sinnvoll, biased blocking zu deaktivieren.
 
-*-XX:+DisableExplicitGC*: Ruft System.gc () aus benutzerdefiniertem Code auf, zwingt ShenandoahGC dazu einen zusätzlichen Müllsammlungszyklus auszuführen, das Deaktivieren schützt vor Missbrauch des Codes.
+*-XX:+DisableExplicitGC*: Ruft `System.gc()` aus benutzerdefiniertem Code auf, zwingt ShenandoahGC dazu einen zusätzlichen Müllsammlungszyklus auszuführen, das Deaktivieren schützt vor Missbrauch des Codes.
 
 ## Server Software (core)
 
@@ -82,10 +82,10 @@ Für die stabliste und effizienteste Variante würde ich [Airplane](https://gith
 
 ## System
 
-Tuned-adm ist ein Command-Line Tool, das einem erlaubt zwischen abgestimmten Profilen zu wechseln, um die Performance in vielen speziellen Fällen zu verbessern.  Installiere das Package mit `apt-get`:
+Tuned-adm ist ein Command-Line Tool, das einem erlaubt zwischen abgestimmten Profilen zu wechseln, um die Performance in vielen speziellen Fällen zu verbessern.  Installiere das Package mit `apt`:
 
 ```yml
-sudo apt-get install tuned
+sudo apt install tuned
 ```
 
 Als nächstest musst die die Konfiguration für dein System auswählen, ich empfehle `throughput-performance` oder `latency-performance` zu nutzen. Setze das Profil, das du benötigst mit:

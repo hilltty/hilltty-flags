@@ -78,7 +78,7 @@ Po tym, uruchamiamy ponownie system, żeby zastosować zmiany. Możesz zweryfiko
 
 *-XX:-UseBiasedLocking*: Istnieje kompromis między przepustowością nieograniczonego (tendencyjnego) blokowania a bezpiecznymi punktami, które JVM sprawia, aby włączać i wyłączać je w razie potrzeby. W przypadku obciążeń skoncentrowanych na opóźnieniach, w tym serwerów Minecraft, warto wyłączyć blokowanie stronnicze.
 
-*-XX:+DisableExplicitGC*: Uruchamianie System.gc () z kodu niestandardowego wymusza ShenandoahGC do wykonywania dodatkowego cyklu wyrzucania elementów bezużytecznych, wyłączenie chroni przed nadużywaniem kodu.
+*-XX:+DisableExplicitGC*: Uruchamianie `System.gc()` z kodu niestandardowego wymusza ShenandoahGC do wykonywania dodatkowego cyklu wyrzucania elementów bezużytecznych, wyłączenie chroni przed nadużywaniem kodu.
 
 ## Oprogramowanie serwera (rdzeń)
 
@@ -86,10 +86,10 @@ Dla najbardziej stabilnej i wydajnej opcji, polecam [Airplane](https://github.co
 
 ## System
 
-Tuned-adm to jest narzędzie w terminalu, który pozwala przełączać się między dostrojonymi profilami, aby poprawić wydajność w wielu przypadkach użycia. Zainstaluj pakiet, używając `apt-get`:
+Tuned-adm to jest narzędzie w terminalu, który pozwala przełączać się między dostrojonymi profilami, aby poprawić wydajność w wielu przypadkach użycia. Zainstaluj pakiet, używając `apt`:
 
 ```yml
-sudo apt-get install tuned
+sudo apt install tuned
 ```
 
 Następnie musisz wybrać konfigurację dla swojego systemu, polecam użycie profilu `throughput-performance`, albo `latency-performance`, którego potrzebujesz:

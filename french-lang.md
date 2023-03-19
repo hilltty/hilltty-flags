@@ -78,7 +78,7 @@ Puis nous redémarrons le système pour appliquer les changements. Vous pouvez v
 
 *-XX:-UseBiasedLocking* : Il existe un compromis entre la bande passante du verrouillage illimité (biaisé) et les points sûrs que la JVM réalise pour les activer et les désactiver selon les besoins. Pour les charges de travail axées sur la latence, y compris les serveurs Minecraft, il est judicieux de désactiver le blocage biaisé.
 
-*-XX:+DisableExplicitGC* : L'appel de System.gc () à partir d'un code personnalisé oblige ShenandoahGC à effectuer un cycle supplémentaire de garbage collection, la désactivation protège contre les abus de code.
+*-XX:+DisableExplicitGC* : L'appel de `System.gc()` à partir d'un code personnalisé oblige ShenandoahGC à effectuer un cycle supplémentaire de garbage collection, la désactivation protège contre les abus de code.
 
 ## Logiciel serveur (noyau)
 
@@ -86,10 +86,10 @@ Pour l'option la plus stable et efficace, je recommande [Airplane](https://githu
 
 ## Système
 
-Tuned-adm est un outil en ligne de commande qui vous permet de passer d'un profil à l'autre pour améliorer les performances dans un certain nombre de cas d'utilisation spécifiques.  Installez le paquet avec `apt-get` :
+Tuned-adm est un outil en ligne de commande qui vous permet de passer d'un profil à l'autre pour améliorer les performances dans un certain nombre de cas d'utilisation spécifiques.  Installez le paquet avec `apt` :
 
 ```yml
-sudo apt-get install tuned
+sudo apt install tuned
 ```
 
 Ensuite, vous devez choisir la configuration pour votre système, je recommande d'utiliser `throughput-performance` ou `latency-performance`, définissez le profil dont vous avez besoin :
