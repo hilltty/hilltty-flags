@@ -32,7 +32,7 @@
 **Готовые свойства:**
 
 ```yml
-java -jar -server -Xms6G -Xmx6G -XX:+UseLargePages -XX:LargePageSizeInBytes=2M -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=iu -XX:+UseNUMA -XX:+AlwaysPreTouch -XX:-UseBiasedLocking -XX:+DisableExplicitGC -Dfile.encoding=UTF-8 launcher-airplane.jar --nogui
+java -jar -server -Xms6G -Xmx6G -XX:+UseLargePages -XX:LargePageSizeInBytes=2M -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=iu -XX:+UseNUMA -XX:-UseBiasedLocking -XX:+DisableExplicitGC -Dfile.encoding=UTF-8 launcher-airplane.jar --nogui
 ```
 
 > Предупреждение `Option UseBiasedLocking was deprecated in version 15.0 and will likely be removed in a future release.` может безопасно игнорироваться и использоваться на вашем сервере, флаг UseBiasedLocking прекрасно выполняет свои функции.
@@ -70,8 +70,6 @@ vm.nr_hugepages = 3372
 
 ---
 *-XX:+UseNUMA*: включает чередование NUMA на хостах с несколькими сокетами, в сочетании с AlwaysPreTouch он обеспечивает лучшую производительность, чем стандартная готовая конфигурация. Более подробно о данной архитектуре можно узнать [отсюда](https://en.wikipedia.org/wiki/Non-uniform_memory_access).
-
-*-XX:+AlwaysPreTouch*: предрегистрация сразу всей выделенной памяти, уменьшает заддержки ввода.
 
 *-XX:-UseBiasedLocking*: существует компромисс между пропускной способностью неограниченной (предвзятой) блокировки и безопасными точками, которые JVM делает, чтобы включать и выключать их по мере необходимости. Для рабочих нагрузок, в том числе сервера Minecraft, ориентированных на задержку, имеет смысл отключить предвзятую блокировку.
 
